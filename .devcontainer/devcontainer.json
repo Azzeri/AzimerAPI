@@ -11,7 +11,8 @@
 			"extensions": [
 				"DEVSENSE.phptools-vscode",
 				"eamodio.gitlens",
-				"MehediDracula.php-namespace-resolver"
+				"MehediDracula.php-namespace-resolver",
+				"streetsidesoftware.code-spell-checker"
 			],
 			"settings": {}
 		}
