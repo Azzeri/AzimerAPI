@@ -10,7 +10,8 @@
 		"vscode": {
 			"extensions": [
 				"DEVSENSE.phptools-vscode",
-				"eamodio.gitlens"
+				"eamodio.gitlens",
+				"MehediDracula.php-namespace-resolver"
 			],
 			"settings": {}
 		}
