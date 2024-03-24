@@ -6,10 +6,12 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "ecotone/laravel": "^1.215",
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9"
     },
     "require-dev": {
+        "brianium/paratest": "^7.4",
         "fakerphp/faker": "^1.23",
         "laravel/pint": "^1.13",
         "laravel/sail": "^1.26",
