@@ -7,6 +7,7 @@ namespace App\UserInterface\Controller\FireBrigadeUnit;
 use App\Application\FireBrigadeUnit\Command\CreateFireBrigadeUnitCommand;
 use App\UserInterface\Controller\Controller;
 use Ecotone\Modelling\CommandBus;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 /**
@@ -21,7 +22,7 @@ class CreateFireBrigadeUnitController extends Controller
     ) {
     }
 
-    public function __invoke(Request $request): void
+    public function __invoke(Request $request): JsonResponse
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -33,6 +34,12 @@ class CreateFireBrigadeUnitController extends Controller
             $request->get('superiorFireBrigadeUnitId')
         );
 
-        $this->commandBus->send($command);
+        try {
+            $this->commandBus->send($command);
+        } catch (\Throwable) {
+            return $this->getInternalErrorResponse();
+        }
+
+        return $this->getSuccessfulJsonResponse();
     }
 }

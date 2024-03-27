@@ -19,4 +19,11 @@ interface UserRepositoryInterface
      * @author Mariusz Waloszczyk <azmario2698@gmail.com>
      */
     public function getById(int $id): ?User;
+
+    /**
+     * Returns user by given email from repository or null if not found
+     *
+     * @author Mariusz Waloszczyk <azmario2698@gmail.com>
+     */
+    public function getByEmail(string $email): ?User;
 }

@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace Tests\Feature\Controller\FireBrigadeUnit;
 
 use App\Infrastructure\FireBrigadeUnit\Persistence\Eloquent\Model\FireBrigadeUnit;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\AbstractDbTestCase;
+use Tests\Helpers\AbstractDbTestCase;
 
 /**
  * Class testing creating new fire brigade unit operation
@@ -15,8 +14,6 @@ use Tests\AbstractDbTestCase;
  */
 class CreateFireBrigadeUnitControllerTest extends AbstractDbTestCase
 {
-    use RefreshDatabase;
-
     /**
      * Case: Create fire brigade unit without superior unit id
      * Expected: Valid response and record present in db
@@ -32,7 +29,7 @@ class CreateFireBrigadeUnitControllerTest extends AbstractDbTestCase
         ];
 
         // Act
-        $response = $this->postJson('/fireBrigadeUnit', $requestData);
+        $response = $this->postJson('/api/fireBrigadeUnit', $requestData);
 
         // Assert
         $response->assertOk();
@@ -58,7 +55,7 @@ class CreateFireBrigadeUnitControllerTest extends AbstractDbTestCase
         ];
 
         // Act
-        $response = $this->postJson('/fireBrigadeUnit', $requestData);
+        $response = $this->postJson('/api/fireBrigadeUnit', $requestData);
 
         // Assert
         $response->assertOk();

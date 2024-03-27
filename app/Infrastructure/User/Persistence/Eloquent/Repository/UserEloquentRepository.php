@@ -28,6 +28,27 @@ class UserEloquentRepository implements UserRepositoryInterface
         }
 
         return new User(
+            $eloquentModel->id,
+            $eloquentModel->name,
+            $eloquentModel->email,
+            $eloquentModel->password
+        );
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @author Mariusz Waloszczyk <azmario2698@gmail.com>
+     */
+    public function getByEmail(string $email): ?User
+    {
+        $eloquentModel = UserModel::where('email', $email)->first();
+        if (! $eloquentModel) {
+            return null;
+        }
+
+        return new User(
+            $eloquentModel->id,
             $eloquentModel->name,
             $eloquentModel->email,
             $eloquentModel->password
